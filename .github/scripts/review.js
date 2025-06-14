@@ -70,7 +70,7 @@ async function getAISuggestions(code) {
 }
 
 async function postComment(body) {
-  const prNumber = process.env.GITHUB_REF.split('/').pop();
+  const prNumber = process.env.GITHUB_REF.split('/')[2];
   const [owner, repo] = process.env.GITHUB_REPOSITORY.split('/');
   await octokit.issues.createComment({
     owner,

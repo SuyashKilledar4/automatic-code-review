@@ -21,13 +21,6 @@ const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
 async function getChangedFiles() {
   const prNumber = process.env.GITHUB_REF.split('/')[2];
   const [owner, repo] = process.env.GITHUB_REPOSITORY.split('/');
-
-  //
-  console.log('------------------------------------------>');
-  console.log({ GITHUB_TOKEN: process.env.GITHUB_TOKEN });
-  console.log({ owner, repo, prNumber });
-  console.log({ OPENAI_API_KEY: process.env.OPENAI_API_KEY});
-  console.log('<------------------------------------------');
   const { data: files } = await octokit.pulls.listFiles({
     owner,
     repo,
@@ -82,14 +75,13 @@ async function postComment(body) {
 
 (async () => {
   const changedFiles = await getChangedFiles();
-  console.log({ changedFiles });
   const files = changedFiles.filter(filename => !ignoreFiles.includes(filename));
-  console.log({ files });
   const lintResults = await runESLint(files);
   for (const result of lintResults) {
     const code = readFileSync(result.filePath, 'utf-8');
     const suggestion = await getAISuggestions(code);
     if (suggestion) {
+      await postComment(`### LTIM Hackathon - Brotherhood`);
       await postComment(`### :bulb: AI Suggestion for \`${result.filePath}\`\n\n${suggestion}`);
     }
   }

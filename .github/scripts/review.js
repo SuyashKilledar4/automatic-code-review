@@ -81,8 +81,7 @@ async function postComment(body) {
     const code = readFileSync(result.filePath, 'utf-8');
     const suggestion = await getAISuggestions(code);
     if (suggestion) {
-      await postComment(`### LTIM Hackathon - Brotherhood`);
-      await postComment(`### :bulb: AI Suggestion for \`${result.filePath}\`\n\n${suggestion}`);
+      await postComment(`### LTIM Hackathon - Brotherhood \n\n ### :bulb: AI Suggestion for \`${result.filePath}\`\n\n${suggestion}`);
     }
   }
 })();

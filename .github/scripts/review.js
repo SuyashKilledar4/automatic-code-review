@@ -19,13 +19,13 @@ const ignoreFiles = [
 const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
 
 async function getChangedFiles() {
-  const prNumber = process.env.GITHUB_REF.split('/').pop();
+  const prNumber = process.env.GITHUB_REF.split('/')[2];
   const [owner, repo] = process.env.GITHUB_REPOSITORY.split('/');
 
   //
   console.log('------------------------------------------>');
   console.log({ GITHUB_TOKEN: process.env.GITHUB_TOKEN });
-  console.log({ owner, repo, prNumber: process.env.GITHUB_REF });
+  console.log({ owner, repo, prNumber });
   console.log({ OPENAI_API_KEY: process.env.OPENAI_API_KEY});
   console.log('<------------------------------------------');
   const { data: files } = await octokit.pulls.listFiles({

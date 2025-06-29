@@ -22,5 +22,10 @@ export default defineConfig([
       "jest/prefer-expect-assertions": "off"
     }
   },
+  {
+    rules: {
+      "prettier/prettier": "off"
+    }
+  },
   eslintPluginPrettierRecommended
 ]);

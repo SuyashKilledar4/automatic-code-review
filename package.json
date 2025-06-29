@@ -36,5 +36,9 @@
     "url": "https://github.com/SuyashKilledar4/automatic-code-review/issues"
   },
   "homepage": "https://github.com/SuyashKilledar4/automatic-code-review#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "@octokit/rest": "^22.0.0",
+    "node-fetch": "^3.3.2"
+  }
 }

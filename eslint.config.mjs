@@ -3,7 +3,6 @@ import globals from "globals";
 import tseslint from "typescript-eslint";
 import { defineConfig } from "eslint/config";
 import jest from "eslint-plugin-jest";
-import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
 
 export default defineConfig([
   {
@@ -27,5 +26,4 @@ export default defineConfig([
       "prettier/prettier": "off"
     }
   },
-  eslintPluginPrettierRecommended
 ]);

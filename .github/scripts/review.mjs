@@ -4,13 +4,18 @@ import fetch from 'node-fetch';
 import { readFileSync } from 'fs';
 
 const ignoreFiles = [
-  '.github/scripts/review.js',
+  '.github/pull_request_template.md',
+  '.github/scripts/review.mjs',
   '.github/workflows/code-review.yml',
   '.gitignore',
   '.prettierignore',
   '.prettierrc',
   '.vscode/settings.json',
-  'eslint.config.js',
+  'eslint.config.mjs',
+  'jest.config.js',
+  'main.js',
+  'tests/tsconfig.json',
+  'tsconfig.json',
   'package-lock.json',
   'package.json',
   'README.md'

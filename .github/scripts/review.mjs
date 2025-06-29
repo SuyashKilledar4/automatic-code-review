@@ -4,13 +4,19 @@ import fetch from 'node-fetch';
 import { readFileSync } from 'fs';
 
 const ignoreFiles = [
-  '.github/scripts/review.js',
+  '.github/pull_request_template.md',
+  '.github/scripts/review.mjs',
   '.github/workflows/code-review.yml',
   '.gitignore',
   '.prettierignore',
   '.prettierrc',
   '.vscode/settings.json',
   'eslint.config.js',
+  'eslint.config.mjs',
+  'jest.config.js',
+  'main.js',
+  'tests/tsconfig.json',
+  'tsconfig.json',
   'package-lock.json',
   'package.json',
   'README.md'
@@ -24,9 +30,9 @@ async function getChangedFiles() {
   const { data: files } = await octokit.pulls.listFiles({
     owner,
     repo,
-    pull_number: prNumber,
+    pull_number: prNumber
   });
-  return files.map(file => file.filename);
+  return files.map((file) => file.filename);
 }
 
 async function runESLint(files) {
@@ -39,16 +45,16 @@ async function getAISuggestions(code) {
     const response = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
-        'Content-Type': 'application/json',
+        Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
         model: 'gpt-4o-mini',
         messages: [
           { role: 'system', content: 'You are a code reviewer.' },
-          { role: 'user', content: `Review this code and suggest improvements:\n\n${code}` },
-        ],
-      }),
+          { role: 'user', content: `Review this code and suggest improvements:\n\n${code}` }
+        ]
+      })
     });
     if (!response.ok) {
       console.error(`OpenAI API error: ${response.status} ${response.statusText}`);
@@ -69,7 +75,7 @@ async function postComment(body) {
     owner,
     repo,
     issue_number: prNumber,
-    body,
+    body
   });
 }
 

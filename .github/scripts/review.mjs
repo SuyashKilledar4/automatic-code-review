@@ -11,6 +11,7 @@ const ignoreFiles = [
   '.prettierignore',
   '.prettierrc',
   '.vscode/settings.json',
+  'eslint.config.js',
   'eslint.config.mjs',
   'jest.config.js',
   'main.js',

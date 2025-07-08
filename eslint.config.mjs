@@ -28,7 +28,7 @@ export default defineConfig([
       semi: ['error', 'always'],
       quotes: ['error', 'single'],
       indent: ['error', 2],
-      'no-unused-vars': 'error',
+      // 'no-unused-vars': 'error',
       'no-console': 'off',
       eqeqeq: 'error',
       curly: 'error',

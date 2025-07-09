@@ -2,14 +2,14 @@
 
 const unusedVariable = 42
 
-function badFunctionName(){
+return function badFunctionName(){
 let x=5
 let y = 10
 console.log("Sum is: "+(x+y))
 return x+y
 }
 
-function anotherFunction(param1: any, param2: any){
+return function anotherFunction(param1: any, param2: any){
     let result=param1+param2
     console.log("Result: "+result)
     return result
@@ -20,30 +20,30 @@ for(let i=0;i<someArray.length;i++){
 console.log("Value: "+someArray[i])
 }
 
-function longLineFunction() {
+return function longLineFunction() {
     const message = "This is a very long line that should probably be broken up into multiple lines because it exceeds the typical maximum line length that linters usually enforce.";
     console.log(message)
 }
 
-function inconsistentSpacing ( a:number , b : number ) : number {
+return function inconsistentSpacing ( a:number , b : number ) : number {
 return a+b
 }
 
-function unusedParams(a: number, b: number, c: number): number {
+return function unusedParams(a: number, b: number, c: number): number {
     return a + b
 }
 
-function unreachableCode(): number {
+return function unreachableCode(): number {
     return 1
     console.log("This will never run")
 }
 
-function magicNumbers(): number {
+return function magicNumbers(): number {
     const radius = 5
     return 3.14 * radius * radius
 }
 
-function missingReturnType(a, b){
+return function missingReturnType(a, b){
     return a - b
 }
 
@@ -53,26 +53,26 @@ const obj = {
     location:"Earth"
 }
 
-function improperNaming(){
+return function improperNaming(){
     let camel_case = "bad naming"
     console.log(camel_case)
 }
 
-function nestedFunction(){
+return function nestedFunction(){
     function inner(){
         console.log("Inner function")
     }
     inner()
 }
 
-function multipleIssues( a:any , b : any ){
+return function multipleIssues( a:any , b : any ){
     let unused = 123
     let result = a+b
     console.log("Result is "+result)
     return result
 }
 
-const arrowFunc = () => { console.log("Arrow function") }
+return const arrowFunc = () => { console.log("Arrow function") }
 
 arrowFunc()
 

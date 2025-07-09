@@ -19,7 +19,7 @@ describe('Linting Test Functions', () => {
   });
 
   test('inconsistentSpacing should return correct sum', () => {
-    expect(inconsistentSpacing(2, 3)).toBe(5);
+    expect(inconsistentSpacing(3, 5)).toBe(8);
   });
 
   test('unusedParams should ignore unused param and return sum of first two', () => {

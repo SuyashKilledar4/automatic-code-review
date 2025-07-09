@@ -7,7 +7,7 @@ import {
   magicNumbers,
   missingReturnType,
   multipleIssues
-} from './linting'; // Adjust the import path as needed
+} from '.../src/utils';
 
 describe('Linting Test Functions', () => {
   test('badFunctionName should return correct sum', () => {

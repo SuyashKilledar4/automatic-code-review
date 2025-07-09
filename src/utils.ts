@@ -43,7 +43,7 @@ export function magicNumbers(): number {
     return 3.14 * radius * radius
 }
 
-export function missingReturnType(a, b){
+export function missingReturnType(a: number, b: number){
     return a - b
 }
 
@@ -86,4 +86,4 @@ magicNumbers()
 missingReturnType(10,5)
 improperNaming()
 nestedFunction()
-multippleIssues(5,6)
+multipleIssues(5,6)

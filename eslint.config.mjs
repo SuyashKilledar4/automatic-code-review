@@ -32,7 +32,9 @@ export default defineConfig([
       'no-console': 'off',
       eqeqeq: 'error',
       curly: 'error',
-      'prettier/prettier': 'off'
+      'prettier/prettier': 'off',
+      'max-depth': ['error', 3],
+      'max-lines-per-function': ['error', { max: 30, skipComments: true, skipBlankLines: true }],
     },
     ignores: [
       'node_modules/**'
